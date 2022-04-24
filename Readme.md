@@ -1,38 +1,39 @@
 # A Burgershot for QBCore Framework
 
-Preview : https://www.youtube.com/watch?v=9sLa6d6hUXY&t=42s
+Preview *outdated* : https://www.youtube.com/watch?v=9sLa6d6hUXY&t=42s
+
+
+## Please note
+
+- I have added an option for people not using qb-target replace the menus.lua file with the menus-notarget.lua file and uncomment lines in the config folder.
 
 - Please make sure u use the latest dependencies aswell as core for this in order to work.
 
-- This Job has been tested on the latest build as of 19/08/2021.
-
-- No support will be given to people using scripts created outside of the QBCore Framework meaning external scripts such as aj-inventory.
-
-- Join Discord for support: https://discord.gg/UDe65vJvA7
+- This Job has been tested on the latest build as of 14/01/2022.
 
 
 ## Dependencies :
 
-QB Framework - https://github.com/qbcore-framework/qb-core
+QBCore Framework - https://github.com/qbcore-framework/qb-core
 
 PolyZone - https://github.com/mkafrin/PolyZone
 
-qb-target - https://github.com/BerkieBb/qb-target
+qb-target - https://github.com/BerkieBb/qb-target (Only needed if not using draw text)
 
-nh-context - https://github.com/nerohiro/nh-context
+qb-input - https://github.com/qbcore-framework/qb-input
 
-nh-keyboard - https://github.com/nerohiro/nh-keyboard
+qb-menu - https://github.com/qbcore-framework/qb-menu
 
 
 ## Credits : 
 
-Decisive Burgershot Job  - https://github.com/decisiveE/BurgerShotJob-for-qb/tree/main/decisive-job
+- BerkieB for his qb-target.
 
+## Newly Added
 
-## To Do 
-- Nothing Yet
+- Different types of coupons 
 
-## Insert into #qb-smallresources --> server --> consumables.lua
+## Insert into @qb-smallresources --> server --> consumables.lua
 ```
 --Burgershot
 
@@ -97,7 +98,7 @@ end)
 
 
 
-## Insert into #qb-smallresources --> config.lua
+## Insert into @qb-smallresources --> config.lua
 ```
 Consumeables = {
 
@@ -118,7 +119,7 @@ Consumeables = {
 } 
 ```
 
-## Insert into #qb-core - Shared.lua
+## Insert into @qb-core/shared/items.lua 
 
 ```
 QBShared.Items = {
@@ -144,10 +145,18 @@ QBShared.Items = {
 	["burger-potato"] 				 = {["name"] = "burger-potato", 			 	["label"] = "Bag of Potatoes", 		["weight"] = 1500, 		["type"] = "item", 			["image"] = "bs_potato.png", 	    		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "An Ingredient"},
 	["burger-mshakeformula"] 		 = {["name"] = "burger-mshakeformula", 			["label"] = "Milkshake Formula", 		["weight"] = 125, 		["type"] = "item", 		["image"] = "bs_ingredients_icecream.png", ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "An Ingredient"},
 	["burger-sodasyrup"] 		 	 = {["name"] = "burger-sodasyrup", 				["label"] = "Soda Syrup", 		["weight"] = 125, 		["type"] = "item", 				["image"] = "bs_ingredients_hfcs.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "An Ingredient"},
+	["burger-toy1"] 		 		 = {["name"] = "burger-toy1", 					["label"] = "Action Figure", 			["weight"] = 50, 		["type"] = "item", 		["image"] = "burger-toy1.png", 		["unique"] = true, 	["useable"] = false, 	["shouldClose"] = false,    ["combinable"] = nil,   ["description"] = "An Action Figure From the late 90's"},
+	["burger-toy2"] 		 		 = {["name"] = "burger-toy2", 					["label"] = "Pink Teddy", 				["weight"] = 50, 		["type"] = "item", 		["image"] = "burger-toy2.png", 			["unique"] = true, 	["useable"] = false, 	["shouldClose"] = false,    ["combinable"] = nil,   ["description"] = "A Fluffy Pink Teddy from the Atic"},
+	["burger-murdermeal"] 		 	 = {["name"] = "burger-murdermeal", 			["label"] = "Murder Meal", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-box.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "An Amazing Murder Meal with a chance of a toy."},
+
+	["burger-coupon25"] 		 	 = {["name"] = "burger-coupon25", 			["label"] = "Burgershot Coupon 25% Off", 				["weight"] = 15, 		["type"] = "item", 		["image"] = "bs_coupon-25.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,    ["combinable"] = nil,   ["description"] = "25% Off Coupon "},
+	["burger-coupon15"] 		 	 = {["name"] = "burger-coupon15", 			["label"] = "Burgershot Coupon 15% Off", 				["weight"] = 15, 		["type"] = "item", 		["image"] = "bs_coupon-fifteen.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,    ["combinable"] = nil,   ["description"] = "15% Off Coupon "},
+	["burger-coupon10"] 		 	 = {["name"] = "burger-coupon10", 			["label"] = "Burgershot Coupon 10% Off", 				["weight"] = 15, 		["type"] = "item", 		["image"] = "bs_coupon-ten.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,    ["combinable"] = nil,   ["description"] = "10% Off Coupon "},
+
 }
 
 ```
-
+## Insert into @qb-core/shared/jobs.lua 
 ```
 QBShared.Jobs = {
     ["burgershot"] = {
@@ -182,13 +191,14 @@ QBShared.Jobs = {
 
 
 
-## Insert into #qb-bossmenu - config.lua
+## Insert into @qb-bossmenu - config.lua
 ```
-['burgershot'] = vector3(-1192.04, -902.476, 13.998)),
+['burgershot'] = vector3(-1192.04, -902.476, 13.998),
 ```
+# if not making use of qb-target no need to insert this into qb-target
 
-## Insert into #qb-target - config.lua - config.targetmodels
-```
+## Insert into @qb-target - config.lua - config.targetmodels
+``` 
 ["burgershotgarage"] = {
 			models = {
 				"ig_floyd"
@@ -200,7 +210,7 @@ QBShared.Jobs = {
 					icon = "fas fa-car",
 					label = "BurgerShot Garage",
 					job = "burgershot",
-				},
+				}
 			},
 			distance = 2.5,
 		},
